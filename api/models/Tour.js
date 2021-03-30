@@ -18,7 +18,9 @@ const tourSchema = mongoose.Schema({
         max: 200,
         default: 0
     },
-    
+    img: {
+        
+    }
 },{
     timestamps: true
 });

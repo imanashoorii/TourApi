@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const role = require('../../middlewares/_helpers/role')
+const role = require('../middlewares/_helpers/role')
 const userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId, 
     phoneNumber: {

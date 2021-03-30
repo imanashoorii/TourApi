@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // Models 
-const User = require('../models/user/user');
+const User = require('../models/user');
 // User Authentication Libs
 const Role = require('../middlewares/_helpers/role');
 
@@ -56,7 +56,3 @@ exports.login =  async (request, response) => {
         
     }
 };
-
-exports.listTour = (req, res) => {
-    
-}

@@ -12,6 +12,10 @@ const {
 // Multer Middleware
 const multer = require('../middlewares/multer')
 
-router.post('/createtour',authenticateJWT, createTour)
+// Admin Permission Middleware
+
+const { hasAdminPermission } = require('../middlewares/admin')
+
+router.post('/createtour',authenticateJWT, hasAdminPermission, createTour)
 
 module.exports = router;

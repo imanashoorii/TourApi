@@ -8,7 +8,7 @@ const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const Bcrypt = require("bcryptjs");
 
-exports.createUser = (req, res, next) => {
+exports.createUser = (req, res) => {
     const { phoneNumber, firstName, lastName, username, role, password, emailAddress } = req.body;
     const newUser = new User({
         _id: new mongoose.Types.ObjectId(),
@@ -46,7 +46,7 @@ exports.login =  async (request, response) => {
         if(!Bcrypt.compareSync(request.body.password, user.password)) {
             return response.status(400).send({ message: "The password is invalid" });
         }
-        const accessToken = jwt.sign({ username: user.username,  role: user.role }, process.env.ACCESS_TOKEN);
+        const accessToken = jwt.sign({ username: user.username,  role: user.role, id:user._id }, process.env.ACCESS_TOKEN);
         return response.json({
             accessToken
         });

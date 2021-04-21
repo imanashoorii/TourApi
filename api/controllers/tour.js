@@ -11,7 +11,7 @@ exports.createTour = (req, res) => {
         description: description,
         price: price,
         tourCapacity: tourCapacity,
-        creator: req.user.id
+        creator: req.user.id,
     })
 
     newTour.save()

@@ -25,3 +25,13 @@ exports.createTour = (req, res) => {
            })
     
 }
+
+
+exports.tourList = async (req, res) => {
+    const data = await Tour.find({})
+                           .populate('creator', 'username role')
+                           .exec(function(err, data) {
+                               if (err) return err;
+                               res.json(data)
+                           })
+}

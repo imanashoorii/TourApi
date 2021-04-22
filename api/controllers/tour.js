@@ -35,3 +35,7 @@ exports.tourList = async (req, res) => {
                                res.json(data)
                            })
 }
+
+// exports.uploadCon = (req, res) => {
+//     res.send()
+// }
